@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           	controllers.URLController.index()
+
+POST	/add							controllers.URLController.addURL()
+GET		/go/:shortened					controllers.URLController.goToURL(shortened: String)
+GET		/list							controllers.URLController.showEmAll()
+
+GET		/r/add/:original				controllers.URLController.jsonAddURL(original: String)
+GET		/r/go/:shortened				controllers.URLController.jsonGoToURL(shortened: String)
+GET		/r/list							controllers.URLController.jsonShowEmAll()
+GET 	/r/change/:shortened/:updated	controllers.URLController.change(shortened: String, updated: String)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file              		controllers.Assets.at(path="/public", file)

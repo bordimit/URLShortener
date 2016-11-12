@@ -1,0 +1,10 @@
+@(message: String)
+
+@main("Welcome to Play") {
+
+    <form action = "@routes.URLController.addURL()" method = "post">
+    	<input type = "text" name = "URLModel.original" />
+    	<button>Shorten</button>
+    </form>  
+
+}

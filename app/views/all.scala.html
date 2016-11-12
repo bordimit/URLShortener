@@ -1,0 +1,45 @@
+@(allURLs: List[URLModel])
+
+
+<style>
+p {text-align:center;}
+h1 {text-align:center;}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 213px;
+    text-decoration: none;
+    border-style: solid;
+    border-color: green;
+}
+li a:hover {
+    background-color: green;
+    color: white;
+}
+.active {
+    text-decoration: underline;
+}
+</style>
+
+<div class="container">
+  <h1>simple url shortener</h1>
+  <ul class="list-inline">
+    <li><a href="/">Shorten URL</a></li>
+    <li  class="active"><a href="/list">List shortened URLs</a></li>
+  </ul>
+</div>
+
+@for(URLModel <- allURLs){
+    <div class="URL">
+        <p><b>Original:</b> @URLModel.original / <b>Shortened:</b> @URLModel.shortened / <b>Expiry date:</b> @URLModel.exp_date</p>
+    </div>
+}
